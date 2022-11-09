@@ -14,12 +14,9 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space )){
-            Instantiate(bullet,bullet.transform.position,bullet.transform.rotation);
-            transform.position = new Vector2(0.2f * Time.deltaTime,0);
-        }
-        if(transform.position.x > 17.057f){
-            Destroy(gameObject);
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullet,transform.position,transform.rotation);
         }
     }
 }
