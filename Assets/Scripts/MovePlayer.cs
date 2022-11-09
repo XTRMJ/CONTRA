@@ -19,20 +19,20 @@ public class MovePlayer : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow)){
             rb.AddForce(Vector2.up * 4, ForceMode2D.Impulse);
-            
-        }
-        if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.Space)){
-            anim.SetBool("RunAndFire", true);
-        }
-        if(Input.GetKey(KeyCode.Space)){
-            anim.SetTrigger("Fire");
-        }
-        if(Input.GetKey(KeyCode.Space)){
-            anim.SetTrigger("Fire");
-        }
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)){
+            anim.SetTrigger("isJump");
+        }else if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)){
             horizontal = Input.GetAxis("Horizontal");
             transform.Translate(Vector3.right * Time.deltaTime * horizontal);
+            if(Input.GetKey(KeyCode.Space)){
+                anim.SetBool("isRun",true);
+                anim.SetBool("isFire",true);
+            }else anim.SetBool("isRun",true);
+        }else if(Input.GetKey(KeyCode.Space)){
+            anim.SetBool("isFire",true);
+        }else{
+            anim.SetBool("isRun",false);
+            anim.SetBool("isJump",false);
+            anim.SetBool("isFire",false);
         }
     }
 }
