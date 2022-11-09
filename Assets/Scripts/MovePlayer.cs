@@ -38,8 +38,17 @@ public class MovePlayer : MonoBehaviour
                 anim.SetBool("isRun",true);
                 anim.SetTrigger("isFire");
             }else anim.SetBool("isRun",true);
-        }else if(Input.GetKeyDown(KeyCode.Space)){
+        }else if(Input.GetKeyDown(KeyCode.Space))
+        {
             anim.SetTrigger("isFire");
+        }else if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if(Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                anim.SetBool("isGrounded", true);
+            }else{
+
+            }
         }else{
             anim.SetBool("isRun",false);
             anim.SetBool("isJump",false);
